@@ -1,6 +1,12 @@
+/**
+ * Write a description of class Jobseeker here.
+ *
+ * @author Ferdian Julianto
+ * @version 18.3.2021
+ */
 public class Jobseeker
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     private int id;
     private String name;
     private String email;
@@ -8,46 +14,95 @@ public class Jobseeker
     private String joinDate;
 
     /**
-     * Constructor for objects of class Jobseeker
+     * Constructor for objects of class Recruiter
+     * @param id merujuk pada id
+     * @param name merujuk pada nama
+     * @param email merujuk pada email
+     * @param password merujuk pada password
+     * @param joinDate merujuk pada joinDate
      */
-    public Jobseeker()
+    public Jobseeker(int id, String name, String email, String password, String joinDate)
     {
-        // initialise instance variables
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = joinDate;
     }
-
-    public static int getId()
+    /**
+     * @return id mengembalikan integer id
+     */
+    public int getId()
     {
-        return 0;
+        return id;
     }
-    public static String getName()
+    /**
+     * @return name mengembalikan String name
+     */
+    public String getName()
     {
-        return "oop";
+        return name;
     }
-    public static String getEmail()
+    /**
+     * @return email mengembalikan String email
+     */
+    public String getEmail()
     {
-        return "oop";
+        return email;
     }
-    public static String getPassword()
+    /**
+     * @return password mengembalikan String password
+     */
+    public String getPassword()
     {
-        return "oop";
+        return password;
     }
-     public static String joinDate()
+    /**
+     * @return joinDate mengembalikan String joinDate
+     */
+     public String getJoinDate()
     {
-        return "oop";
+        return joinDate;
     }
-    public static void setId(int id)
+    /**
+     * @param id merujuk pada id
+     */
+    public void setId(int id)
     {
+        this.id = id;
     }
-    public static void setName(String Name)
+    /**
+     * @param name merujuk pada name
+     */
+    public void setName(String name)
     {
+        this.name = name;
     }
-    public static void setEmail(String email)
+    /**
+     * @param email merujuk pada email
+     */
+    public void setEmail(String email)
     {
+        this.email = email;
     }
-    public static void setPassword(String password)
+    /**
+     * @param password merujuk pada password
+     */
+    public void setPassword(String password)
     {
+        this.password = password;
     }
-    public static void setJoinDate(String joinDate)
+    /**
+     * @param joinDate merujuk pada joinDate
+     */
+    public void setJoinDate(String joinDate)
     {
+        this.joinDate = joinDate;
+    }
+    /**
+     * Method untuk Print Data
+     */
+    public void printData() {
+        System.out.println(getName());
     }
 }

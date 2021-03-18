@@ -1,48 +1,109 @@
+/**
+ * Write a description of class Recruiter here.
+ *
+ * @author Ferdian Julianto
+ * @version 18.3.2021
+ */
 public class Recruiter
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     private int id;
     private String name;
     private String email;
-    private String password;
-    private String joinDate;
+    private String phoneNumber;
+    private Location location;
 
-    public Recruiter()
+    /**
+     * Constructor for objects of class Recruiter
+     * @param id merujuk pada id
+     * @param name merujuk pada nama
+     * @param email merujuk pada email
+     * @param phoneNumber merujuk pada nomorTelepon
+     * @param location merujuk pada location
+     */
+    public Recruiter(int id, String name, String email, String phoneNumber, Location location )
     {
-        // initialise instance variables
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
     }
-
-    public static int getId()
+    /**
+     * @return id mengembalikan integer id
+     */
+    public int getId()
     {
-        return 0;
+        return id;
     }
-    
-        public static String getName()
+    /**
+     * @return name mengembalikan String name
+     */
+        public String getName()
     {
-        return "oop";
-    }
-    
-        
-    public static String getEmail()
+        return name;
+    }   
+    /**
+     * @return email mengembalikan String email
+     */
+    public String getEmail()
     {
-        return "oop";
+        return email;
     }
-     public static String getPhoneNumber()
+    /**
+     * @return phoneNumber mengembalikan String phoneNumber
+     */
+     public String getPhoneNumber()
     {
-        return "oop";
+        return phoneNumber;
     }
-    public static void setId(int id)
+    /**
+     * @return location mengembalikan String location
+     */
+    public Location getLocation()
     {
+        return location;
     }
-    public static void setEmail(String Email)
+    /**
+     * @param id merujuk pada id
+     */
+    public void setId(int id)
     {
+        this.id = id;
     }
-    public static void setName(String Name)
+    /**
+     * @param email merujuk pada email
+     */
+    public void setEmail(String email)
     {
+        this.email = email;
     }
-    public static void setPhoneNumber(String phoneNumber)
+    /**
+     * @param name merujuk pada name
+     */
+    public void setName(String name)
     {
+        this.name = name;
     }
-
+    /**
+     * @param phoneNumber merujuk pada phoneNumber
+     */
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
+    /**
+     * @param location merujuk pada location
+     */
+    public void setLocation(Location location)
+    {
+        this.location = location;
+    }
+    /**
+     * Method untuk Print Data
+     */
+    public void printData() {
+        System.out.println(getName());
+    }
 }
 

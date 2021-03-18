@@ -1,48 +1,111 @@
+/**
+ * Write a description of class Job here.
+ *
+ * @author Ferdian Julianto
+ * @version 18.3.2021
+ */
 public class Job
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     private int id;
     private String name;
     private int fee;
     private String category;
+    private Recruiter recruiter;
     
-    public Job()
+    /**
+     * Constructor for objects of class Job
+     * @param id merujuk pada id
+     * @param name merujuk pada nama
+     * @param recruiter merujuk pada recruiter
+     * @param fee merujuk pada gaji
+     * @param category merujuk pada kategori
+     */
+    public Job(int id, String name, Recruiter recruiter, int fee, String category)
     {
+        this.id = id;
+        this.recruiter = recruiter;
+        this.name = name;
+        this.fee = fee;
+        this.category = category;
         // initialise instance variables
     }
-
-    public static int getId()
+    /**
+     * @return id mengembalikan int id
+     */
+    public int getId()
     {
-        return 0;
+        return id;
     }
-    public static String getName()
+    /**
+     * @return name mengembalikan String name
+     */
+    public String getName()
     {
-        return "oop";
+        return name;
     }
-    public static int getFee()
+    /**
+     * @return fee mengembalikan int fee
+     */
+    public int getFee()
     {
-        return 0;
+        return fee;
     }
-    public static String getCategory()
+    /**
+     * @return category mengembalikan String category
+     */
+    public String getCategory()
     {
-        return "oop";
+        return category;
     }
-    public static void setId(int id)
+    /**
+     * @return recruiter mengembalikan Recruiter recruiter
+     */
+    public Recruiter getRecruiter()
     {
-       
+        return recruiter;
     }
-    public static void setName(String name)
+    /**
+     * @param id merujuk pada id
+     */
+    public void setId(int id)
     {
-       
+       this.id = id;
     }
-    public static void setFee(int fee)
+    /**
+     * @param name merujuk pada name
+     */
+    public void setName(String name)
     {
-       
+       this.name = name;
     }
-    public static void setCategory(String category)
+    /**
+     * @param recruiter merujuk pada recruiter
+     */
+    public void setRecruiter(Recruiter recruiter)
+    {
+       this.recruiter = recruiter;
+    }
+    /**
+     * @param fee merujuk pada fee
+     */
+    public void setFee(int fee)
+    {
+        this.fee = fee;
+    }
+    /**
+     * @param category merujuk pada category
+     */
+    public void setCategory(String category)
+    {
+        this.category = category;
+    }
+    /**
+     * Method untuk Print Data
+     */
+    public void printData()
     {
         
     }
-    
     
 }
