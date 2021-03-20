@@ -92,6 +92,6 @@ public class Invoice
      * Method untuk Print Data
      */
     public void printData(){
-        
+        System.out.println(getTotalFee());
     }
 }
