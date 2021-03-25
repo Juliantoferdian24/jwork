@@ -7,23 +7,14 @@
 public class DatabaseRecruiter {
 
     
-    private String[] listRecruiter;
-
-    public DatabaseRecruiter() {
-        listRecruiter = new String[100];
-    }
-    /**
-     * @param listRecruiter merujuk pada daftar perekrut
-     */
-    public DatabaseRecruiter(String[] listRecruiter) {
-        this.listRecruiter = listRecruiter;
-    }
+    private static String[] listRecruiter;
+    
     /**
      * Menambah perekrut
      * @param recruiter merujuk pada perekrut
      * @return false
      */
-    public boolean addRecruiter(Recruiter recruiter) {
+    public static boolean addRecruiter(Recruiter recruiter){
         return false;
     }
     /**
@@ -31,18 +22,18 @@ public class DatabaseRecruiter {
      * @param recruiter merujuk pada perekrut
      * @return false
      */
-    public boolean removeRecruiter(Recruiter recruiter) {
+    public static boolean removeRecruiter(Recruiter recruiter){
         return false;
     }
     /**
      * Get perekrut
      * @return false
      */
-    public Recruiter getRecruiter(){
+    public static Recruiter getRecruiter(){
         return null;
     }
     
-    public String[] getListRecruiter(){
+    public static String[] getListRecruiter(){
         return listRecruiter;
     }
 }

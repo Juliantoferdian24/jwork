@@ -6,24 +6,14 @@
  */
 public class DatabaseJob {
     
-    private String[] listJob;
+    private static String[] listJob;
     
-    public DatabaseJob(){
-       listJob = new String[100];
-    }
-    
-    /**
-     * @param listJob merujuk pada daftar pekerjaan
-     */
-    public DatabaseJob(String[] listJob){
-        this.listJob = listJob;
-    }
     /**
      * Menambah pekerjaan
      * @param job merujuk pada pekerjaan
      * @return false
      */
-    public boolean addJob(Job job){
+    public static boolean addJob(Job job){
         return false;
     }
     /**
@@ -31,7 +21,7 @@ public class DatabaseJob {
      * @param job merujuk pada pekerjaan
      * @return false
      */
-    public boolean remove(Job job){
+    public static boolean remove(Job job){
         return false;
     }
     /**
@@ -39,11 +29,11 @@ public class DatabaseJob {
      * @param job merujuk pada pekerjaan
      * @return null
      */
-    public Job getJob(){
+    public static Job getJob(){
         return null;
     }
     
-    public String[] getListJob(){
+    public static String[] getListJob(){
         return listJob;
     }
 }

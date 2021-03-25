@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=DatabaseJobseeker
+comment1.params=jobseeker
+comment1.target=boolean\ addJobseeker(Jobseeker)
+comment2.params=jobseeker
+comment2.target=boolean\ removeJobseeker(Jobseeker)
+comment3.params=
+comment3.target=Jobseeker\ getJobseeker()
+comment3.text=\r\n\ Sebuah\ getter\ untuk\ mendapatkan\ sebuah\ perekrut\ getter\ ini\ masih\ kosong\r\n
+comment4.params=
+comment4.target=java.lang.String[]\ getListJobseeker()
+comment4.text=\r\n\ Sebuah\ getter\ untuk\ mendapatkan\ list\ dari\ perekrut\r\n\ \r\n\ @return\ listRecruiter\ merupakan\ daftar\ dari\ perekrut\r\n
+numComments=5

@@ -10,7 +10,7 @@ public class Job
     private int id;
     private String name;
     private int fee;
-    private String category;
+    private JobCategory category;
     private Recruiter recruiter;
     
     /**
@@ -21,7 +21,7 @@ public class Job
      * @param fee merujuk pada gaji
      * @param category merujuk pada kategori
      */
-    public Job(int id, String name, Recruiter recruiter, int fee, String category)
+    public Job(int id, String name, Recruiter recruiter, int fee, JobCategory category)
     {
         this.id = id;
         this.recruiter = recruiter;
@@ -54,7 +54,7 @@ public class Job
     /**
      * @return category mengembalikan String category
      */
-    public String getCategory()
+    public JobCategory getCategory()
     {
         return category;
     }
@@ -96,7 +96,7 @@ public class Job
     /**
      * @param category merujuk pada category
      */
-    public void setCategory(String category)
+    public void setCategory(JobCategory category)
     {
         this.category = category;
     }
@@ -105,7 +105,13 @@ public class Job
      */
     public void printData()
     {
-        System.out.println(getName());
+        System.out.println("===================== JOB =====================");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Recruiter: " + recruiter.getName());
+        System.out.println("City: " + recruiter.getLocation().getCity());
+        System.out.println("Fee: " + fee);
+        System.out.println("Category: " + category);
     }
     
 }
