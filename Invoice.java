@@ -12,6 +12,8 @@ public class Invoice
     private String date;
     private int totalFee;
     private Jobseeker jobseeker;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
 
     /**
      * Constructor for objects of class Recruiter
@@ -21,12 +23,14 @@ public class Invoice
      * @param totalFee merujuk pada total gaji
      * @param jobseeker merujuk pada jobseeker
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker){
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status){
         this.id = id;
         this.idJob = idJob;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymentType = paymentType;
+        this.status = status;
     }
     /**
      * @return id mengembalikan integer id
@@ -58,6 +62,14 @@ public class Invoice
     public Jobseeker getJobseeker() {
         return jobseeker;
     }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public InvoiceStatus getInvoiceStatus() {
+        return status;
+    }
     /**
      * @param id merujuk pada id
      */
@@ -88,10 +100,24 @@ public class Invoice
     public void setJobseeker(Jobseeker jobseeker) {
         this.jobseeker = jobseeker;
     }
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public void setInvoiceStatus(InvoiceStatus status) {
+        this.status = status;
+    }
     /**
      * Method untuk Print Data
      */
     public void printData(){
-        System.out.println(getTotalFee());
+        System.out.println("===================== INVOICE =====================");
+        System.out.println("ID: " + id);
+        System.out.println("ID Job: " + idJob);
+        System.out.println("Date: " + date);
+        System.out.println("Seeker: " + jobseeker.getName());
+        System.out.println("Fee: " + totalFee);
+        System.out.println("Status: " + status);
     }
 }
