@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=PaymentType
+comment0.text=\r\n\ Payment\ Type\ yang\ dapat\ digunakan\r\n
 comment1.params=payment
 comment1.target=PaymentType(java.lang.String)
 comment2.params=

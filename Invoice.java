@@ -4,16 +4,15 @@
  * @author Ferdian Julianto
  * @version 18.3.2021
  */
-public class Invoice
+public abstract class Invoice
 {
     // instance variables
     private int id;
-    private int idJob;
+    private Job job;
     private String date;
-    private int totalFee;
+    protected int totalFee;
     private Jobseeker jobseeker;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
 
     /**
      * Constructor for objects of class Recruiter
@@ -23,26 +22,25 @@ public class Invoice
      * @param totalFee merujuk pada total gaji
      * @param jobseeker merujuk pada jobseeker
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status){
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
         this.id = id;
-        this.idJob = idJob;
+        this.job = job;
         this.date = date;
-        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
-    /**
-     * @return id mengembalikan integer id
+    
+    
+    
+    /** 
+     * @return int
      */
-    public int getId(){
+    public int getId() {
         return id;
     }
-    /**
-     * @return idJob mengembalikan integer idJob
-     */
-    public int getIdJob(){
-        return idJob;
+    
+    public Job getJob(){
+        return job;
     }
     /**
      * @return date mengembalikan String date
@@ -63,61 +61,60 @@ public class Invoice
         return jobseeker;
     }
 
-    public PaymentType getPaymentType() {
-        return paymentType;
+    /**
+     * @return paymentType mengembalikan PaymentType paymentType
+     */
+    public abstract PaymentType getPaymentType();
+
+    /**
+     * @return invoiceStatus mengembalikan InvoiceStatus invoiceStatus
+     */
+    public InvoiceStatus getInvoiceStatus() {
+        return invoiceStatus;
     }
 
-    public InvoiceStatus getInvoiceStatus() {
-        return status;
-    }
     /**
      * @param id merujuk pada id
      */
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
+    
     /**
      * @param idJobs merujuk pada idJobs
      */
-    public void setIdJobs(int idJobs){
-        this.idJob = idJobs;
+    public void setJob(Job job) {
+        this.job = job;
     }
+    
     /**
      * @param date merujuk pada date
      */
-    public void setDate(String date){
+    public void setDate(String date) {
         this.date = date;
     }
+    
     /**
      * @param totalFee merujuk pada totalFee
      */
-    public void setTotalFee(int totalFee){
-        this.totalFee = totalFee;
-    }
+    public abstract void setTotalFee();
+    
     /**
-     * @param totalFee merujuk pada jobseeker
+     * @param jobseeker merujuk pada jobseeker
      */
     public void setJobseeker(Jobseeker jobseeker) {
         this.jobseeker = jobseeker;
     }
 
-    public void setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
+    /**
+     * @param invoiceStatus merujuk pada invoiceStatus
+     */
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        this.invoiceStatus = invoiceStatus;
     }
 
-    public void setInvoiceStatus(InvoiceStatus status) {
-        this.status = status;
-    }
     /**
      * Method untuk Print Data
      */
-    public void printData(){
-        System.out.println("===================== INVOICE =====================");
-        System.out.println("ID: " + id);
-        System.out.println("ID Job: " + idJob);
-        System.out.println("Date: " + date);
-        System.out.println("Seeker: " + jobseeker.getName());
-        System.out.println("Fee: " + totalFee);
-        System.out.println("Status: " + status);
-    }
+    public abstract void printData();
 }

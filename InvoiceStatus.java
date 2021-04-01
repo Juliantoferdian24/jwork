@@ -1,8 +1,14 @@
+/**
+ *  InvoiceStatus yang bisa digunakan
+ */
+
 public enum InvoiceStatus {
     OnGoing("OnGoing"),
     Finished("Finished"),
     Cancelled("Cancelled");
+
     private String invoice;
+    
     private InvoiceStatus(String invoice) {
         this.invoice = invoice;
     }
@@ -11,6 +17,4 @@ public enum InvoiceStatus {
     public String toString(){
         return invoice;
     }
-
-    
 }

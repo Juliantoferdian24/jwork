@@ -8,31 +8,36 @@ public class DatabaseJob {
     
     private static String[] listJob;
     
-    /**
-     * Menambah pekerjaan
-     * @param job merujuk pada pekerjaan
-     * @return false
+    /** 
+     * Menambah Pekerjaan
+     * @param job
+     * @return boolean
      */
-    public static boolean addJob(Job job){
+    public static boolean addJob(Job job) {
         return false;
     }
+    
     /**
      * Menghapus pekerjaan
      * @param job merujuk pada pekerjaan
-     * @return false
+     * @return boolean
      */
     public static boolean remove(Job job){
         return false;
     }
-    /**
-     * get pekerjaan
-     * @param job merujuk pada pekerjaan
-     * @return null
+    
+    /** 
+     * Getter Mendapatkan data Job
+     * @return Job
      */
     public static Job getJob(){
         return null;
     }
     
+    /** 
+     * Getter Mendapatkan data list job
+     * @return String[]
+     */
     public static String[] getListJob(){
         return listJob;
     }

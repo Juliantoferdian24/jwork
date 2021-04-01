@@ -1,25 +1,41 @@
+/**
+ * Write a description of class DatabaseJobseeker here.
+ *
+ * @author Ferdian Julianto
+ * @version 18.3.2021
+ */
 public class DatabaseJobseeker {
     private static String[] listJobseeker;
 
+    /** 
+     * Menambah Job Seeker
+     * @param jobseeker
+     * @return boolean
+     */
     public static boolean addJobseeker(Jobseeker jobseeker) {
         return false;
     }
 
+    /** 
+     * Menghapus Job Seeker
+     * @param jobseeker
+     * @return boolean
+     */
     public static boolean removeJobseeker(Jobseeker jobseeker) {
         return false;
     }
 
-    /**
-     * Sebuah getter untuk mendapatkan sebuah perekrut getter ini masih kosong
+    /** 
+     * Getter Mendapatkan data JobSeeker
+     * @return Jobseeker
      */
     public static Jobseeker getJobseeker() {
         return null;
     }
 
-    /**
-     * Sebuah getter untuk mendapatkan list dari perekrut
-     * 
-     * @return listRecruiter merupakan daftar dari perekrut
+    /** 
+     * Getter Mendapatkan data daftar JobSeeker
+     * @return Jobseeker
      */
     public static String[] getListJobseeker() {
         return listJobseeker;

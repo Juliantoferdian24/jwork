@@ -1,5 +1,5 @@
 /**
- * Write a description of class DatabaseJob here.
+ * Write a description of class DatabaseRecruiter here.
  *
  * @author Ferdian Julianto
  * @version 18.3.2021
@@ -9,30 +9,36 @@ public class DatabaseRecruiter {
     
     private static String[] listRecruiter;
     
-    /**
-     * Menambah perekrut
-     * @param recruiter merujuk pada perekrut
-     * @return false
+    /** 
+     * Menambah recruiter
+     * @param recruiter
+     * @return boolean
      */
-    public static boolean addRecruiter(Recruiter recruiter){
+    public static boolean addRecruiter(Recruiter recruiter) {
         return false;
     }
-    /**
-     * Menghapus perekrut
-     * @param recruiter merujuk pada perekrut
-     * @return false
+    
+    /** 
+     * Menghapus recruiter
+     * @param recruiter
+     * @return boolean
      */
-    public static boolean removeRecruiter(Recruiter recruiter){
+    public static boolean removeRecruiter(Recruiter recruiter) {
         return false;
     }
-    /**
-     * Get perekrut
-     * @return false
+    
+    /** 
+     * Getter Mendapatkan data Recruiter
+     * @return Recruiter
      */
     public static Recruiter getRecruiter(){
         return null;
     }
     
+    /** 
+     * Getter Mendapatkan data daftar Recruiter
+     * @return Recruiter
+     */
     public static String[] getListRecruiter(){
         return listRecruiter;
     }

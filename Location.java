@@ -10,6 +10,7 @@ public class Location
     private String province;
     private String city;
     private String description;
+
     /**
      * Constructor for objects of class Location
      * @param province merujuk pada provinsi
@@ -70,6 +71,6 @@ public class Location
      */
     public void printData()
     {
-        System.out.println(getProvince());
+        System.out.println(province);
     }
 }

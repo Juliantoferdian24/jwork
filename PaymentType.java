@@ -1,8 +1,12 @@
+/**
+ * Payment Type yang dapat digunakan
+ */
 public enum PaymentType {
     BankPayment("Bank Payment"),
     EwalletPayment("E-wallet Payment");
 
     private String payment;
+
     private PaymentType(String payment) {
         this.payment = payment;
     }
@@ -11,5 +15,4 @@ public enum PaymentType {
     public String toString(){
         return payment;
     }
-
 }
