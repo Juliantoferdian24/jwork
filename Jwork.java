@@ -19,7 +19,7 @@ public class Jwork
         Jobseeker myjobseeker = new Jobseeker(99, "apa", "apa@gmail.com", "apa", "27/3/2020");
         
         Bonus myBonus1 = new Bonus(34, "Grab123", 444, 555, true);
-        Bonus myBonus2 = new Bonus(33, "Gojek123", 333, 111, true);
+        Bonus myBonus2 = new Bonus(33, "Gojek123", 444, 111, true);
 
         EwalletPayment invoice1 = new EwalletPayment(1, job1, "13 April 2021", myjobseeker, InvoiceStatus.OnGoing);
         EwalletPayment invoice2 = new EwalletPayment(2, job1, "14 April 2021",myjobseeker,InvoiceStatus.OnGoing, myBonus1);
