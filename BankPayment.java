@@ -10,7 +10,7 @@ public class BankPayment extends Invoice {
 
     public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee) {
         super(id, job, date, jobseeker, invoiceStatus);
-        this.setAdminFee(adminFee);
+        this.adminFee = adminFee;
     }
     
     @Override
