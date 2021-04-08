@@ -69,8 +69,8 @@ public class Location
     /**
      * Method untuk Print Data
      */
-    public void printData()
-    {
-        System.out.println(province);
+    @Override
+    public String toString() {
+        return "Province = " + getProvince() + "\nCity = " + getCity() + "\nDescription = " + getDescription();
     }
 }

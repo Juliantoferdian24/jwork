@@ -103,15 +103,11 @@ public class Job
     /**
      * Method untuk Print Data
      */
-    public void printData()
-    {
-        System.out.println("===================== JOB =====================");
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Recruiter: " + recruiter.getName());
-        System.out.println("City: " + recruiter.getLocation().getCity());
-        System.out.println("Fee: " + fee);
-        System.out.println("Category: " + category);
+    @Override
+    public String toString() {
+        return "Id = " + getId() + "\nName = " + getName() + "\nRecruiter = " + getRecruiter() + "\nCity= "
+                + getRecruiter().getLocation().getCity() + "\nFee = " + getFee() + "\nCategory = " + getCategory();
+
     }
     
 }
