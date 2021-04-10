@@ -1,3 +1,7 @@
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /**
  * Write a description of class Invoice here.
  *
@@ -9,7 +13,7 @@ public abstract class Invoice
     // instance variables
     private int id;
     private Job job;
-    private String date;
+    private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
@@ -22,10 +26,10 @@ public abstract class Invoice
      * @param totalFee merujuk pada total gaji
      * @param jobseeker merujuk pada jobseeker
      */
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
         this.id = id;
         this.job = job;
-        this.date = date;
+        this.date = Calendar.getInstance();
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
     }
@@ -45,7 +49,7 @@ public abstract class Invoice
     /**
      * @return date mengembalikan String date
      */
-    public String getDate(){
+    public Calendar getDate(){
         return date;
     }
     /**
@@ -90,9 +94,16 @@ public abstract class Invoice
     /**
      * @param date merujuk pada date
      */
-    public void setDate(String date) {
+    public void setJoinDate(Calendar joinDate)
+    {
         this.date = date;
     }
+
+    public void setJoinDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year, month - 1, dayOfMonth);
+    }
+    
     
     /**
      * @param totalFee merujuk pada totalFee
@@ -116,5 +127,5 @@ public abstract class Invoice
     /**
      * Method untuk Print Data
      */
-    public abstract void printData();
+    public abstract String toString();
 }

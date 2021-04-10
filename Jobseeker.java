@@ -41,7 +41,7 @@ public class Jobseeker
         this.name = name;
         setEmail(email);
         setPassword(password);
-        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+        this.joinDate = new GregorianCalendar(year, month - 1, dayOfMonth);
     }
 
     public Jobseeker(int id, String name, String email, String password)
@@ -140,7 +140,7 @@ public class Jobseeker
 
     public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+        this.joinDate = new GregorianCalendar(year, month - 1, dayOfMonth);
     }
 
     @Override
