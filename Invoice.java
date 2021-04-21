@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -94,12 +93,12 @@ public abstract class Invoice
     /**
      * @param date merujuk pada date
      */
-    public void setJoinDate(Calendar joinDate)
+    public void setDate(Calendar date)
     {
         this.date = date;
     }
 
-    public void setJoinDate(int year, int month, int dayOfMonth)
+    public void setDate(int year, int month, int dayOfMonth)
     {
         this.date = new GregorianCalendar(year, month - 1, dayOfMonth);
     }
