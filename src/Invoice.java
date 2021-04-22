@@ -1,130 +1,84 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/**
- * Write a description of class Invoice here.
- *
- * @author Ferdian Julianto
- * @version 18.3.2021
- */
 public abstract class Invoice
 {
-    // instance variables
+    // instance variables dari Invoice
     private int id;
-    private Job job;
+    private ArrayList<Job> jobs;
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
 
     /**
-     * Constructor for objects of class Recruiter
-     * @param id merujuk pada id
-     * @param idJob merujuk pada idJob
-     * @param date merujuk pada tanggal
-     * @param totalFee merujuk pada total gaji
-     * @param jobseeker merujuk pada jobseeker
+     * Constructor dari invoice
      */
-    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+    public Invoice(
+            int id,
+            ArrayList<Job> jobs,
+            Jobseeker jobseeker){
         this.id = id;
-        this.job = job;
-        this.date = Calendar.getInstance();
+        this.jobs = jobs;
+        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.invoiceStatus = invoiceStatus;
+        this.invoiceStatus = InvoiceStatus.OnGoing;
+        this.date = Calendar.getInstance();
     }
-    
-    
-    
-    /** 
-     * @return int
-     */
-    public int getId() {
+
+
+    public int getId(){
         return id;
     }
-    
-    public Job getJob(){
-        return job;
+
+    public ArrayList<Job> getJobs(){
+        return jobs;
     }
-    /**
-     * @return date mengembalikan String date
-     */
+
     public Calendar getDate(){
         return date;
     }
-    /**
-     * @return totalFee mengembalikan int totalFee
-     */
+
     public int getTotalFee(){
         return totalFee;
     }
-    /**
-     * @return jobseeker mengembalikan Jobseeker jobseeker
-     */
+
+    public InvoiceStatus getInvoiceStatus(){
+        return invoiceStatus;
+    }
+
+    public abstract PaymentType getPaymentType();
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setJobs(ArrayList<Job> jobs){
+        this.jobs = jobs;
+    }
+
+    public void setDate(Calendar date){
+        this.date = date;
+    }
+
+    public void setDate(int year, int month, int dayOfMonth){
+        this.date = new GregorianCalendar(year, month, dayOfMonth);
+    }
+
+    public abstract void setTotalFee();
+
     public Jobseeker getJobseeker() {
         return jobseeker;
     }
 
-    /**
-     * @return paymentType mengembalikan PaymentType paymentType
-     */
-    public abstract PaymentType getPaymentType();
-
-    /**
-     * @return invoiceStatus mengembalikan InvoiceStatus invoiceStatus
-     */
-    public InvoiceStatus getInvoiceStatus() {
-        return invoiceStatus;
-    }
-
-    /**
-     * @param id merujuk pada id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    /**
-     * @param idJobs merujuk pada idJobs
-     */
-    public void setJob(Job job) {
-        this.job = job;
-    }
-    
-    /**
-     * @param date merujuk pada date
-     */
-    public void setDate(Calendar date)
-    {
-        this.date = date;
-    }
-
-    public void setDate(int year, int month, int dayOfMonth)
-    {
-        this.date = new GregorianCalendar(year, month - 1, dayOfMonth);
-    }
-    
-    
-    /**
-     * @param totalFee merujuk pada totalFee
-     */
-    public abstract void setTotalFee();
-    
-    /**
-     * @param jobseeker merujuk pada jobseeker
-     */
     public void setJobseeker(Jobseeker jobseeker) {
         this.jobseeker = jobseeker;
     }
 
-    /**
-     * @param invoiceStatus merujuk pada invoiceStatus
-     */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
         this.invoiceStatus = invoiceStatus;
     }
 
-    /**
-     * Method untuk Print Data
-     */
     public abstract String toString();
 }
