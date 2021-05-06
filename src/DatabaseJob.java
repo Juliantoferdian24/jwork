@@ -21,14 +21,19 @@ public class DatabaseJob {
         return lastId;
     }
 
-    public static Job getJobById(int id) {
-        Job temp = null;
-        for (int i = 0; i < JOB_DATABASE.size(); i++) {
-            if (id == JOB_DATABASE.get(i).getId()) {
-                temp = JOB_DATABASE.get(i);
+    public static Job getJobById(int id) throws JobNotFoundException {
+        Job result = null;
+        for (Job element : JOB_DATABASE) {
+            if (element.getId() == id) {
+                result = element;
+                return result;
             }
         }
-        return temp;
+        if (result == null){
+            throw new JobNotFoundException(id);
+        }
+
+        return result;
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
@@ -66,16 +71,14 @@ public class DatabaseJob {
         return true;
     }
 
-
-    public static boolean removeJob(int id) {
+    public static boolean removeJob(int id) throws JobNotFoundException {
         for (Job job : JOB_DATABASE) {
-            if (job.getId() == job.getId()) {
+            if (job.getId() == id) {
                 JOB_DATABASE.remove(job);
                 return true;
             }
         }
-        return false;
+        throw new JobNotFoundException(id);
     }
-
     // Access method to fetch a specific existing Job
 }

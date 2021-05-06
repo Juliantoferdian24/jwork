@@ -68,6 +68,7 @@ public abstract class Invoice
 
     public abstract void setTotalFee();
 
+
     public Jobseeker getJobseeker() {
         return jobseeker;
     }
