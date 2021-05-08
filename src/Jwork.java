@@ -8,9 +8,16 @@ import java.util.GregorianCalendar;
  * @version 18.3.2021
  */
 
-public class Jwork{
+public class Jwork extends Thread{
 
     public static void main(String[] args) {
+
+        ArrayList<Job> myJob = new ArrayList<Job>();
+        ArrayList<Job> myJob1 = new ArrayList<Job>();
+
+
+
+
 
         Jobseeker myjobseeker1 = new Jobseeker(1, "Ferdian", "ferdian.julianto@ui.ac.id", "FerdianTekkom123");
         Jobseeker myjobseeker2 = new Jobseeker(2, "Julianto", "ferdian.julianto@ui.ac.id", "FerdianTekkom1");
@@ -92,11 +99,6 @@ public class Jwork{
 
         System.out.println("\n=====================Jobseeker Database====================\n");
         System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
-
-
-        ArrayList<Job> myJob = new ArrayList<Job>();
-        ArrayList<Job> myJob1 = new ArrayList<Job>();
-
         try {
             myJob.add(new Job(10, "Backend Engineer BukaLapak", DatabaseRecruiter.getRecruiterById(1), 10000, JobCategory.BackEnd));
         } catch (RecruiterNotFoundException e) {
@@ -109,13 +111,26 @@ public class Jwork{
         }
 
         try {
-            DatabaseInvoice.addInvoice(new BankPayment(1, myJob, DatabaseJobseeker.getJobseekerById(1)));
+            DatabaseInvoice.addInvoice(new EwalletPayment(12, myJob, DatabaseJobseeker.getJobseekerById(1)));
         } catch (JobSeekerNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (OngoingInvoiceAlreadyExistsException e) {
             e.printStackTrace();
         }
+
         try {
-            DatabaseInvoice.addInvoice(new EwalletPayment(2, myJob, DatabaseJobseeker.getJobseekerById(4)));
+            DatabaseInvoice.addInvoice(new EwalletPayment(13, myJob1, DatabaseJobseeker.getJobseekerById(2)));
         } catch (JobSeekerNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            DatabaseInvoice.addInvoice(new EwalletPayment(14, myJob1, DatabaseJobseeker.getJobseekerById(3)));
+        } catch (JobSeekerNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (OngoingInvoiceAlreadyExistsException e) {
             e.printStackTrace();
         }
 
@@ -123,6 +138,18 @@ public class Jwork{
             new Thread(new FeeCalculator(invoice)).start();
         }
 
+
+        try {
+            DatabaseInvoice.getInvoiceById(1);
+        } catch (InvoiceNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            DatabaseInvoice.removeInvoice(1);
+        } catch (InvoiceNotFoundException e) {
+            e.printStackTrace();
+        }
 
 //        Location location1 = new Location("DKI Jakarta", "Jakarta Barat", "Angke");
 //        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Ferdian Julianto",
