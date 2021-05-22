@@ -62,7 +62,7 @@ public class InvoiceController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Invoice addBankPayment(@RequestParam(value="foodIdList") ArrayList<Integer> foodIdList,
-                      @RequestParam(value="Jobseekeri") int customerId,
+                      @RequestParam(value="jobseekerid") int customerId,
                       @RequestParam(value="adminFee") int adminFee)
     {
         Job job = null;
