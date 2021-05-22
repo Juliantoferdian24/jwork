@@ -60,20 +60,33 @@ public class InvoiceController {
 
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public Invoice addBankPayment(@RequestParam(value="foodIdList") ArrayList<Integer> foodIdList,
-                      @RequestParam(value="Jobseekeri") int customerId,
-                      @RequestParam(value="adminFee") int adminFee)
-    {
-        Job job = null;
+    @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
+    public Invoice addBankPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
+                                  @RequestParam(value = "jobseekerId") int jobseekerId,
+                                  @RequestParam(value = "adminFee") int adminFee){
+        Invoice invoice = null;
+        ArrayList<Job> jobs = null;
+        for(var i = 0; i < jobIdList.size(); i++) {
+            try {
+                jobs.add(DatabaseJob.getJobById(jobIdList.get(i)));
+            } catch (JobNotFoundException e) {
+                e.getMessage();
+            }
+        }
         try {
-            job = new Job(DatabaseJob.getLastId()+1, name, DatabaseRecruiter.getRecruiterById(recruiterId), fee, JobCategory.valueOf(category));
-        } catch (RecruiterNotFoundException e) {
+            invoice = new BankPayment(DatabaseInvoice.getLastId()+1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId));
+            invoice.setTotalFee();
+        } catch (JobSeekerNotFoundException e) {
             e.getMessage();
         }
-        boolean status = DatabaseJob.addJob(job);
-        if(status == true){
-            return job  ;
+        boolean status = false;
+        try {
+            status = DatabaseInvoice.addInvoice(invoice);
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            e.getMessage();
+        }
+        if (status) {
+            return invoice;
         } else {
             return null;
         }
