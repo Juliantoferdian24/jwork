@@ -3,25 +3,26 @@ package ferdianjulianto.jwork;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class BankPayment extends Invoice{
+public class BankPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
     private int adminFee;
 
-    public BankPayment(int id, ArrayList<Job> jobs,  Jobseeker jobseeker){
+    public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker) {
         super(id, jobs, jobseeker);
     }
+
     public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker,
-                       int adminFee){
-        super(id, jobs,  jobseeker);
+                       int adminFee) {
+        super(id, jobs, jobseeker);
         this.adminFee = adminFee;
     }
+
     @Override
     public void setTotalFee() {
-        for(Job job : getJobs()) {
-            if(adminFee != 0) {
+        for (Job job : getJobs()) {
+            if (adminFee != 0) {
                 totalFee = job.getFee() - getAdminFee();
-            }
-            else {
+            } else {
                 totalFee = job.getFee();
             }
         }
@@ -31,12 +32,15 @@ public class BankPayment extends Invoice{
     public PaymentType getPaymentType() {
         return PAYMENT_TYPE;
     }
+
     public int getAdminFee() {
         return adminFee;
     }
+
     public void setAdminFee(int adminFee) {
         this.adminFee = adminFee;
     }
+
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");

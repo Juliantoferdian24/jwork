@@ -8,9 +8,13 @@ import java.util.ArrayList;
 @RequestMapping("/invoice")
 @RestController
 public class InvoiceController {
-    @RequestMapping(value = "", method = RequestMethod.GET)
+
+    @RequestMapping("")
     public ArrayList<Invoice> getAllInvoice() {
-        return (DatabaseInvoice.getInvoiceDatabase();
+        ArrayList<Invoice> invoice = null;
+
+        invoice = DatabaseInvoice.getInvoiceDatabase();
+        return invoice;
     }
 
     @RequestMapping("/{id}")
@@ -19,21 +23,20 @@ public class InvoiceController {
         try {
             invoice = DatabaseInvoice.getInvoiceById(id);
         } catch (InvoiceNotFoundException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
         return invoice;
     }
 
-    @RequestMapping("/Jobseeker/{JobseekerId}")
-    public ArrayList<Invoice> getInvoiceByJobseeker(@PathVariable int jobseekerid) {
-        ArrayList<Invoice> invoices = null;
-        invoices = DatabaseInvoice.getInvoiceByJobseeker(jobseekerid);
+    @RequestMapping("/jobseeker/{JobseekerId}")
+    public ArrayList<Invoice> getInvoiceByJobseeker(@PathVariable int jobseekerId) {
+        ArrayList<Invoice> invoice = null;
+        invoice = DatabaseInvoice.getInvoiceByJobseeker(jobseekerId);
 
-        return invoices;
+        return invoice;
     }
 
-    //no5
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public boolean removeInvoice(@PathVariable int id) {
         try {
@@ -57,42 +60,32 @@ public class InvoiceController {
             e.getMessage();
             return null;
         }
-
     }
 
-<<<<<<< HEAD
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public Invoice addBankPayment(@RequestParam(value="foodIdList") ArrayList<Integer> foodIdList,
-                      @RequestParam(value="jobseekerid") int customerId,
-                      @RequestParam(value="adminFee") int adminFee)
-    {
-        Job job = null;
-=======
-    @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
-    public Invoice addBankPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
+    @RequestMapping(value = "createBankPayment", method = RequestMethod.POST)
+    public Invoice addBankPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
                                   @RequestParam(value = "jobseekerId") int jobseekerId,
-                                  @RequestParam(value = "adminFee") int adminFee){
+                                  @RequestParam(value = "adminFee") int adminFee) {
         Invoice invoice = null;
-        ArrayList<Job> jobs = null;
-        for(var i = 0; i < jobIdList.size(); i++) {
+        ArrayList<Job> jobs = new ArrayList<>();;
+        for (Integer integer : jobIdList) {
             try {
-                jobs.add(DatabaseJob.getJobById(jobIdList.get(i)));
+                jobs.add(DatabaseJob.getJobById(integer));
             } catch (JobNotFoundException e) {
                 e.getMessage();
             }
         }
         try {
-            invoice = new BankPayment(DatabaseInvoice.getLastId()+1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId));
+            invoice = new BankPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId), adminFee);
             invoice.setTotalFee();
         } catch (JobSeekerNotFoundException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         boolean status = false;
->>>>>>> 7657e85595e7a1aea5e5d1b5c24ff3b80a9f6c36
         try {
             status = DatabaseInvoice.addInvoice(invoice);
         } catch (OngoingInvoiceAlreadyExistsException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         if (status) {
             return invoice;
@@ -100,4 +93,37 @@ public class InvoiceController {
             return null;
         }
     }
+
+    @RequestMapping(value = "createEWalletPayment", method = RequestMethod.POST)
+    public Invoice addEWalletPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
+                                     @RequestParam(value = "jobseekerId") int jobseekerId,
+                                     @RequestParam(value = "referralCode") String referralCode) {
+        Invoice invoice = null;
+        ArrayList<Job> jobs = new ArrayList<>();;
+        for (Integer integer : jobIdList) {
+            try {
+                jobs.add(DatabaseJob.getJobById(integer));
+            } catch (JobNotFoundException e) {
+                e.getMessage();
+            }
+        }
+        try {
+            invoice = new EwalletPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId), DatabaseBonus.getBonusByRefferalCode(referralCode));
+            invoice.setTotalFee();
+        } catch (JobSeekerNotFoundException e) {
+            e.printStackTrace();
+        }
+        boolean status = false;
+        try {
+            status = DatabaseInvoice.addInvoice(invoice);
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            e.printStackTrace();
+        }
+        if (status) {
+            return invoice;
+        } else {
+            return null;
+        }
+    }
+
 }
